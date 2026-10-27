@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Activate Seraphic Mobile Browser</title>
+<style>
+  :root { --red: #e01f3d; --ink: #14161a; --muted: #5b616b; --line: #dde0e5; --bg: #f5f6f8; }
+  * { box-sizing: border-box; }
+  body { font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; margin: 0; background: var(--bg); color: var(--ink); }
+  main { max-width: 520px; margin: 0 auto; padding: 28px 20px 48px; }
+  .card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 24px 20px; }
+  .brand { font-size: 13px; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); margin: 0 0 8px; }
+  h1 { font-size: 24px; line-height: 1.25; margin: 0 0 16px; }
+  ol { padding-left: 22px; margin: 0 0 8px; }
+  li { font-size: 17px; line-height: 1.5; margin-bottom: 8px; }
+  a.btn { display: block; text-align: center; background: var(--red); color: #fff; text-decoration: none;
+          font-size: 20px; font-weight: 650; padding: 20px 16px; border-radius: 12px; margin: 20px 0 10px; }
+  a.btn:active { filter: brightness(.9); }
+  a.alt { display: block; text-align: center; color: var(--ink); font-size: 15px; padding: 10px; }
+  .note { font-size: 14px; color: var(--muted); line-height: 1.5; margin: 16px 0 0; }
+  .qr { display: flex; justify-content: center; margin: 20px 0 12px; }
+  .qr img { width: 240px; height: 240px; image-rendering: pixelated; }
+  .url { font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 14px; word-break: break-all;
+         background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<main>
+  <div class="card">
+    <p class="brand">CrowdStrike Falcon Seraphic Enterprise Browser</p>
+
+    <!-- Shown on an Android phone with a valid activation code -->
+    <section id="android" hidden>
+      <h1>Activate the app on this phone</h1>
+      <ol>
+        <li>Install <b>Seraphic Mobile Browser</b> from Google Play, if it is not installed yet.</li>
+        <li>Tap the red button. The app opens and activates itself.</li>
+        <li>Activation is complete when the browser opens instead of the "Registration Token Required" screen.</li>
+      </ol>
+      <a class="btn" id="open-intent" href="#">Open and activate the app</a>
+      <a class="alt" id="open-scheme" href="#">Button did not open the app? Tap here</a>
+      <p class="note">If the app is not installed, the button opens its Google Play page. Install it, come back to this page and tap the button again.</p>
+    </section>
+
+    <!-- Shown on a computer or any non-Android device -->
+    <section id="desktop" hidden>
+      <h1>Open this page on the Android test phone</h1>
+      <ol>
+        <li>Scan this code with the phone's camera, or type the address below into Chrome on the phone.</li>
+        <li>On the phone, tap the red <b>Open and activate the app</b> button.</li>
+      </ol>
+      <div class="qr" id="qr"></div>
+      <div class="url" id="page-url"></div>
+      <p class="note">The app can only be activated from this page on the phone. Opening the app from the home screen first shows "Registration Token Required".</p>
+    </section>
+
+    <!-- Shown when the page address has no valid activation code -->
+    <section id="missing" hidden>
+      <h1>This link is missing its activation code</h1>
+      <p class="note">Use the full link from the app access instructions, including the part after the question mark.</p>
+    </section>
+  </div>
+</main>
+<script src="qrcode.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
